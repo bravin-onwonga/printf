@@ -21,6 +21,7 @@ typedef struct format
 } pH;
 
 int _putchar(char c);
+int _printf(const char *format, ...);
 int printf_pointer(va_list val);
 int printf_hex_aux(unsigned long int num);
 int printf_HEX_aux(unsigned int num);
