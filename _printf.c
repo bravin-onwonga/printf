@@ -1,10 +1,13 @@
 #include "main.h"
 
+char buffer[BUF_SIZE]; /* buffer to hold chars to print */
+
 int _printf(const char *format, ...)
 {
 	va_list(ap);
-	unsigned int index;
-	char *p;
+	int index;
+	const char *p;
+	char buffer[BUF_SIZE];
 
 	va_start(ap, format);
 
@@ -15,46 +18,48 @@ int _printf(const char *format, ...)
 	{
 		while (*p != '\0')
 		{
-			switch (*p)
+
+			if (*p == '%')
 			{
-				if (p == '%')
+				p++;
+				switch (*p)
 				{
-					p++;
 				case ('c'):
-					index = _print_char(va_arg(ap, int), index);
+					index = _print_char(va_arg(ap, int), index, buffer);
 					break;
 				case ('s'):
-					index = _print_string(va_arg(ap, char *), index);
+					index = _print_string(va_arg(ap, char *), index, buffer);
+					break;
 				case ('%'):
-					BUFF[index] = '%';
+					buffer[index] = '%';
+					break;
 				}
 			}
-			BUFF[index] = *p;
+			buffer[index] = *p;
 			p++;
 			index++;
 		}
 	}
-	_print_buffer(BUFF, index);
-	return (0);
-}
-
-unsigned int _print_char(char *c, unsigned int index)
-{
-	BUFF[index] = c[0];
-	index++;
-
-	free(c);
+	_print_buffer(buffer, index);
 	return (index);
 }
 
-unsigned int _print_string(char *str, unsigned int index)
+int _print_char(int c, int index, char *buffer)
 {
-	unsigned int i;
+	buffer[index] = c;
+	index++;
+
+	return (index);
+}
+
+int _print_string(char *str, int index, char *buffer)
+{
+	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		BUFF[index] = str[i];
+		buffer[index] = str[i];
 		i++;
 		index++;
 	}
@@ -62,14 +67,14 @@ unsigned int _print_string(char *str, unsigned int index)
 	return (index);
 }
 
-void _print_buffer(char *BUFF, unsigned int index)
+void _print_buffer(char *buffer, int index)
 {
-	unsigned int i;
+	int i;
 
 	i = 0;
 	while (i <= index)
 	{
-		_putchar(BUFF[i]);
+		_putchar(buffer[i]);
 		i++;
 	}
 }
