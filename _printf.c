@@ -30,14 +30,29 @@ int _printf(const char *format, ...)
 				case ('s'):
 					index = _print_string(va_arg(ap, char *), index, buffer);
 					break;
+				case ('d'):
+					index = _print_int(va_arg(ap, int), index, buffer);
+					break;
 				case ('%'):
 					buffer[index] = '%';
+					index++;
+					break;
+				default:
+					buffer[index] = '%';
+					if (*p != '\0')
+					{
+						buffer[index] = *p;
+						index++;
+					}
 					break;
 				}
 			}
-			buffer[index] = *p;
+			else
+			{
+				buffer[index] = *p;
+				index++;
+			}
 			p++;
-			index++;
 		}
 	}
 	_print_buffer(buffer, index);
@@ -63,7 +78,6 @@ int _print_string(char *str, int index, char *buffer)
 		i++;
 		index++;
 	}
-	free(str);
 	return (index);
 }
 
@@ -77,6 +91,46 @@ void _print_buffer(char *buffer, int index)
 		_putchar(buffer[i]);
 		i++;
 	}
+}
+
+int _print_int(int n, int index, char *buffer)
+{
+
+	int num, temp_index;
+	char temp[BUF_SIZE];
+
+	if (n < 0)
+	{
+		buffer[index] = '-';
+		n = -n;
+		index++;
+	}
+
+	if (n == 0)
+	{
+		buffer[index] = '0';
+		index++;
+	}
+	else
+	{
+		temp_index = 0;
+
+		while (n > 0)
+		{
+			num = n % 10;
+			temp[temp_index] = num + '0';
+			n = n / 10;
+			temp_index++;
+		}
+
+		while (temp_index > 0)
+		{
+			temp_index--;
+			buffer[index] = temp[temp_index];
+			index++;
+		}
+	}
+	return index;
 }
 
 /**

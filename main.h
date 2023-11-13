@@ -13,6 +13,7 @@ int _printf(const char *format, ...);
 int _print_char(int c, int index, char *buffer);
 int _print_string(char *str, int index, char *buffer);
 void _print_buffer(char *BUFF, int index);
+int _print_int(int n, int index, char *buffer);
 
 extern char buffer[BUF_SIZE]; /* Declare buffer as an external variable */
 
