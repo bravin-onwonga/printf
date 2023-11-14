@@ -1,13 +1,10 @@
 #include "main.h"
 
-char buffer[BUF_SIZE]; /* buffer to hold chars to print */
-
 int _printf(const char *format, ...)
 {
 	va_list(ap);
 	int index;
 	const char *p;
-	char buffer[BUF_SIZE];
 
 	va_start(ap, format);
 
@@ -25,23 +22,23 @@ int _printf(const char *format, ...)
 				switch (*p)
 				{
 				case ('c'):
-					index = _print_char(va_arg(ap, int), index, buffer);
+					index = _print_char(va_arg(ap, int), index);
 					break;
 				case ('s'):
-					index = _print_string(va_arg(ap, char *), index, buffer);
+					index = _print_string(va_arg(ap, char *), index);
 					break;
 				case ('d'):
-					index = _print_int(va_arg(ap, int), index, buffer);
+					index = _print_int(va_arg(ap, int), index);
 					break;
 				case ('%'):
-					buffer[index] = '%';
+					_putchar('%');
 					index++;
 					break;
 				default:
-					buffer[index] = '%';
+					_putchar('%');
 					if (*p != '\0')
 					{
-						buffer[index] = *p;
+						_putchar(*p);
 						index++;
 					}
 					break;
@@ -49,51 +46,38 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				buffer[index] = *p;
+				_putchar(*p);
 				index++;
 			}
 			p++;
 		}
 	}
-	_print_buffer(buffer, index);
 	return (index);
 }
 
-int _print_char(int c, int index, char *buffer)
+int _print_char(int c, int index)
 {
-	buffer[index] = c;
+	_putchar(c);
 	index++;
 
 	return (index);
 }
 
-int _print_string(char *str, int index, char *buffer)
+int _print_string(char *str, int index)
 {
 	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		buffer[index] = str[i];
+		_putchar(str[i]);
 		i++;
 		index++;
 	}
 	return (index);
 }
 
-void _print_buffer(char *buffer, int index)
-{
-	int i;
-
-	i = 0;
-	while (i <= index)
-	{
-		_putchar(buffer[i]);
-		i++;
-	}
-}
-
-int _print_int(int n, int index, char *buffer)
+int _print_int(int n, int index)
 {
 
 	int num, temp_index;
@@ -101,14 +85,14 @@ int _print_int(int n, int index, char *buffer)
 
 	if (n < 0)
 	{
-		buffer[index] = '-';
+		_putchar('-');
 		n = -n;
 		index++;
 	}
 
 	if (n == 0)
 	{
-		buffer[index] = '0';
+		_putchar('0');
 		index++;
 	}
 	else
@@ -126,7 +110,7 @@ int _print_int(int n, int index, char *buffer)
 		while (temp_index > 0)
 		{
 			temp_index--;
-			buffer[index] = temp[temp_index];
+			_putchar(temp[temp_index]);
 			index++;
 		}
 	}
