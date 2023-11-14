@@ -58,6 +58,8 @@ int _printf(const char *format, ...)
 			p++;
 		}
 	}
+	if (*p - 1 != '\n')
+		_putchar('\n');
 
 	va_end(ap);
 	return (index);
