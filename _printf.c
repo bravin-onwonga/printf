@@ -21,7 +21,8 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	index = 0;
-	for (p = format; *p; p++)
+	p = format;
+	while (*p != '\0')
 	{
 		if (*p == '%')
 		{
@@ -31,21 +32,31 @@ int _printf(const char *format, ...)
 				func = get_func(*p);
 				if (!func)
 				{
-					_printf("%%%c", *p);
-					index += 2;
+					_putchar('%');
+					if (*p != '\0')
+					{
+						_putchar(*p);
+						index += 2;
+					}
 				}
 				else
 				{
 					index = func(ap, index);
 					p++;
-					continue;
 				}
 			}
 			else
-				index += _putchar('%');
+			{
+				_putchar('%');
+				index++;
+			}
 		}
 		else
-			index += _putchar(*p);
+		{
+			_putchar(*p);
+			index++;
+		}
+		p++;
 	}
 	va_end(ap);
 	return (index);
