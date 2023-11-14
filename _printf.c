@@ -58,7 +58,6 @@ int _printf(const char *format, ...)
 int _print_char(int c, int index)
 {
 	_putchar(c);
-	index++;
 
 	return (index);
 }
