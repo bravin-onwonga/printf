@@ -10,7 +10,6 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int _print_char(int c, int index);
 int _print_string(char *str, int index);
 int _print_int(int n, int index);
 

@@ -17,7 +17,7 @@ int main(void)
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("%%");
-	len_c = _printf("%c\n", 'A');
+	len_c = _printf("%c", 'A');
 	_printf("%s", "Hello, World!");
 	_printf("%s", NULL);
 	len_m = _printf("%% %c %s", 'B', "Testing");

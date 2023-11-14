@@ -28,7 +28,8 @@ int _printf(const char *format, ...)
 				switch (*p)
 				{
 				case ('c'):
-					index = _print_char(va_arg(ap, int), index);
+					_putchar(va_arg(ap, int));
+					index++;
 					break;
 				case ('s'):
 					index = _print_string(va_arg(ap, char *), index);
@@ -58,18 +59,7 @@ int _printf(const char *format, ...)
 			p++;
 		}
 	}
-	if (*p - 1 != '\n')
-		_putchar('\n');
-
 	va_end(ap);
-	return (index);
-}
-
-int _print_char(int c, int index)
-{
-	_putchar(c);
-	index++;
-
 	return (index);
 }
 
