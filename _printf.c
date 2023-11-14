@@ -32,8 +32,7 @@ int _printf(const char *format, ...)
 				func = get_func(*p);
 				if (!func)
 				{
-					_putchar('%');
-					_putchar(*p);
+					_printf("%%%c", *p);
 					index += 2;
 				}
 				else
