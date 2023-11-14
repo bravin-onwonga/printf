@@ -30,25 +30,35 @@ int _printf(const char *format, ...)
 		if (*p == '%')
 		{
 			p++;
-			func = get_func(*p);
-			if (!func)
+			if (*p != '\0')
 			{
-				_putchar('%');
-				if (*p != '\0')
+				func = get_func(*p);
+				if (!func)
 				{
-					_putchar(*p);
-					index++;
+					_putchar('%');
+					if (*p != '\0')
+					{
+						_putchar(*p);
+						index += 2;
+					}
+				}
+				else
+				{
+					index = func(ap, index);
+					p++;
 				}
 			}
 			else
 			{
-				index = func(ap, index);
-				p++;
+				_putchar('%');
 				index++;
 			}
 		}
-		_putchar(*p);
-		index++;
+		else
+		{
+			_putchar(*p);
+			index++;
+		}
 		p++;
 	}
 	va_end(ap);
