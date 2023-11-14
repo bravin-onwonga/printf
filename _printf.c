@@ -52,6 +52,7 @@ int _printf(const char *format, ...)
 			p++;
 		}
 	}
+	index--;
 	return (index);
 }
 
