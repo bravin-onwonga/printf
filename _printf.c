@@ -17,9 +17,10 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
-	/* Checks for string after space */
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
+	/* Checks if while(!*format++) is true */
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
+
 	if (!format)
 		return (-1);
 	index = 0;
