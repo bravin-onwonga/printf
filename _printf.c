@@ -58,6 +58,7 @@ int _printf(const char *format, ...)
 			p++;
 		}
 	}
+	va_end(ap);
 	return (index);
 }
 
