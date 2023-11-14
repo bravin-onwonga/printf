@@ -44,6 +44,7 @@ int _printf(const char *format, ...)
 			{
 				index = func(ap, index);
 				p++;
+				index++;
 			}
 		}
 		_putchar(*p);
