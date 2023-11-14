@@ -17,7 +17,6 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
-	/* Checks if while(!*format++) is true */
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	index = 0;
