@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			else if (*p != '\n')
+			else if (*p)
 			{
 				_putchar(*p);
 				index++;
@@ -58,7 +58,7 @@ int _printf(const char *format, ...)
 			p++;
 		}
 	}
-	_putchar('\n');
+
 	va_end(ap);
 	return (index);
 }
@@ -77,7 +77,7 @@ int _print_string(char *str, int index)
 
 	i = 0;
 	if (str == NULL)
-		str = "(nil)";
+		str = "(null)";
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);
