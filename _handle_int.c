@@ -14,7 +14,7 @@ int _print_int(va_list ap, int index)
 
 	n = va_arg(ap, int);
 
-	index = _actual_print(n, index);
+	_actual_print(n, &index);
 
 	return (index);
 }
@@ -28,7 +28,7 @@ int _print_int(va_list ap, int index)
  *		int is printed
  */
 
-int _actual_print(int n, int index)
+int _actual_print(int n, int *index)
 {
 	int num;
 
@@ -37,21 +37,26 @@ int _actual_print(int n, int index)
 		_putchar('-');
 		_actual_print((n / 10) * -1, index + 1);
 		_putchar((n % 10) * -1 + '0');
-		return (index + 11);
+		*index += 11;
 	}
 
-	if (n < 0)
-	{
-		_putchar('-');
-		num = -n;
-		index++;
-	}
 	else
-		num = n;
+	{
 
-	if (num / 10)
-		_actual_print(num / 10, index + 1);
-	_putchar((num % 10) + '0');
+		if (n < 0)
+		{
+			_putchar('-');
+			num = -n;
+			(*index)++;
+		}
+		else
+			num = n;
 
-	return (index);
+		if (num / 10)
+			_actual_print(num / 10, index);
+		_putchar((num % 10) + '0');
+		(*index)++;
+	}
+
+	return (*index);
 }
