@@ -58,6 +58,7 @@ int _printf(const char *format, ...)
 int _print_char(int c, int index)
 {
 	_putchar(c);
+	index++;
 
 	return (index);
 }
@@ -67,6 +68,8 @@ int _print_string(char *str, int index)
 	int i;
 
 	i = 0;
+	if (str = NULL)
+		str = "(nil)";
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);
