@@ -14,10 +14,13 @@ int (*get_func(char s))(va_list, int)
 	    {'s', _print_string},
 	    {'%', _print_perc},
 	    {'d', _print_int},
-	    {'i', _print_int}};
+	    {'i', _print_int},
+	    {'b', _print_binary}
+
+	};
 
 	int i;
-	int func_count = 5;
+	int func_count = 6;
 
 	i = 0;
 	while (i < func_count)
