@@ -49,7 +49,7 @@ int _print_string(va_list ap, int index)
 
 	i = 0;
 	if (str == NULL)
-		str = "(null)";
+		str = "(nul)";
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);

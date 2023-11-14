@@ -24,6 +24,8 @@ int main(void)
 	_printf("Invalid format: %q\n");
 	_printf("%b\n", 98);
 	printf("%d\n", len_n);
+	_printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *)0);
+	_printf("man gcc:\n%s", str);
 
 	return (0);
 }
