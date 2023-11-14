@@ -12,10 +12,12 @@ int (*get_func(char s))(va_list, int)
 	pF _funcs[] = {
 	    {'c', _print_char},
 	    {'s', _print_string},
+	    {'%', _print_perc},
 	    {'d', _print_int},
-	    {'%', _print_perc}};
+	    {'i', _print_int}};
+
 	int i;
-	int func_count = 4;
+	int func_count = 5;
 
 	i = 0;
 	while (i < func_count)
