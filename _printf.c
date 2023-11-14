@@ -59,7 +59,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	_putchar('\n');
-	index++;
 	va_end(ap);
 	return (index);
 }
