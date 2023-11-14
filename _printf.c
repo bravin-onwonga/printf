@@ -33,16 +33,14 @@ int _printf(const char *format, ...)
 				if (!func)
 				{
 					_putchar('%');
-					if (*p != '\0')
-					{
-						_putchar(*p);
-						index += 2;
-					}
+					_putchar(*p);
+					index += 2;
 				}
 				else
 				{
 					index = func(ap, index);
 					p++;
+					continue;
 				}
 			}
 			else
