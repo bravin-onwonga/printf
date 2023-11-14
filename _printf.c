@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 
 	if (!format)
 		return (-1);
-
 	index = 0;
 	p = format;
 	while (*p != '\0')
@@ -46,10 +45,7 @@ int _printf(const char *format, ...)
 				index += _putchar('%');
 		}
 		else
-		{
-			_putchar(*p);
-			index++;
-		}
+			index += _putchar(*p);
 		p++;
 	}
 	va_end(ap);
