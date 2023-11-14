@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			else
+			else if (*p != '\n')
 			{
 				_putchar(*p);
 				index++;
@@ -58,6 +58,8 @@ int _printf(const char *format, ...)
 			p++;
 		}
 	}
+	_putchar('\n');
+	index++;
 	va_end(ap);
 	return (index);
 }
@@ -65,7 +67,6 @@ int _printf(const char *format, ...)
 int _print_char(int c, int index)
 {
 	_putchar(c);
-	index++;
 
 	return (index);
 }
