@@ -43,10 +43,7 @@ int _printf(const char *format, ...)
 				}
 			}
 			else
-			{
-				_putchar('%');
-				index++;
-			}
+				index += _putchar('%');
 		}
 		else
 		{
