@@ -17,10 +17,7 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
+	if (!format)
 		return (-1);
 
 	index = 0;
@@ -36,16 +33,14 @@ int _printf(const char *format, ...)
 				if (!func)
 				{
 					_putchar('%');
-					if (*p != '\0')
-					{
-						_putchar(*p);
-						index += 2;
-					}
+					_putchar(*p);
+					index += 2;
 				}
 				else
 				{
 					index = func(ap, index);
 					p++;
+					continue;
 				}
 			}
 			else
