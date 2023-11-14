@@ -40,7 +40,11 @@ int _printf(const char *format, ...)
 					index++;
 				}
 			}
-			index = func(ap, index);
+			else
+			{
+				index = func(ap, index);
+				p++;
+			}
 		}
 		_putchar(*p);
 		index++;
