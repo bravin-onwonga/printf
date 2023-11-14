@@ -68,7 +68,7 @@ int _print_string(char *str, int index)
 	int i;
 
 	i = 0;
-	if (str = NULL)
+	if (str == NULL)
 		str = "(nil)";
 	while (str[i] != '\0')
 	{
