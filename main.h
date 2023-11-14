@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
 
 #define BUF_SIZE 1024
 
@@ -44,6 +45,7 @@ int _print_perc(va_list ap, int index);
 /*handles int*/
 int _print_int(va_list ap, int index);
 int _print_unknown_base(va_list ap, int index);
+int _actual_print(int n, int index);
 
 extern char buffer[BUF_SIZE]; /* Declare buffer as an external variable */
 
