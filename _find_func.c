@@ -14,8 +14,13 @@ int (*get_func(char s))(va_list, int)
 	    {'s', _print_string},
 	    {'%', _print_perc},
 	    {'d', _print_int},
-	    {'i', _print_int}};
-
+	    {'i', _print_int},
+	    {'u', _print_unsigned},
+	    {'o'' _print_oct}'
+	    {'x', _print_hex},
+	    {'X', _print_HEX},
+		};
+		
 	int i;
 	int func_count = 5;
 

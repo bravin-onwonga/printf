@@ -46,7 +46,12 @@ int _print_perc(va_list ap, int index);
 int _print_int(va_list ap, int index);
 int _print_unknown_base(va_list ap, int index);
 int _actual_print(int n, int *index);
-
+/*handles specifies*/
+int print_unsigned(va_list ap);
+int print_oct(va_list ap);
+int print_hex(va_list ap);
+int print_HEX(va_list ap);
+	
 extern char buffer[BUF_SIZE]; /* Declare buffer as an external variable */
 
 #endif /* MAIN_H */
