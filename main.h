@@ -22,7 +22,6 @@
 typedef struct printFunc
 {
 	char c;
-
 	int (*f)(va_list ap, int);
 } pF;
 
@@ -46,12 +45,20 @@ int _print_perc(va_list ap, int index);
 int _print_int(va_list ap, int index);
 int _print_unknown_base(va_list ap, int index);
 int _actual_print(int n, int *index);
+<<<<<<< HEAD
 /*handles specifies*/
 int print_unsigned(va_list ap);
 int print_oct(va_list ap);
 int print_hex(va_list ap);
 int print_HEX(va_list ap);
 	
+=======
+
+/* print binary */
+int _print_binary(va_list ap, int index);
+int _actual_print_binary(unsigned int n, int *index);
+
+>>>>>>> 7081196d077a61eb2400dd91957e976404f8c02e
 extern char buffer[BUF_SIZE]; /* Declare buffer as an external variable */
 
 #endif /* MAIN_H */

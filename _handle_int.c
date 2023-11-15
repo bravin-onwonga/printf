@@ -60,3 +60,53 @@ int _actual_print(int n, int *index)
 
 	return (*index);
 }
+
+/**
+ * _print_binary - handles printing binary
+ *
+ * @ap: va_list
+ * @index: number of chars printed thus far
+ * Return: number of chars printed after func
+ *		is executed
+ */
+
+int _print_binary(va_list ap, int index)
+{
+	unsigned int n;
+
+	n = va_arg(ap, unsigned int);
+
+	if (n == 0)
+	{
+		_putchar('0');
+		index++;
+		return (index);
+	}
+	else
+		_actual_print_binary(n, &index);
+
+	return (index);
+}
+
+/**
+ * _actual_print_binary - handles printing & conversion to bin
+ *
+ * @n: int to convert
+ * @index: count of chars printed thus far
+ * Return: count of chars printed after function is executed
+ */
+
+int _actual_print_binary(unsigned int n, int *index)
+{
+	int bit = 0;
+
+	if (n != 0)
+	{
+		bit = n & 1;
+		n >>= 1;
+		_actual_print_binary(n, index);
+		_putchar(bit ? '1' : '0');
+		(*index)++;
+	}
+	return (*index);
+}

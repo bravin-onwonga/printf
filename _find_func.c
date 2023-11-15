@@ -15,14 +15,20 @@ int (*get_func(char s))(va_list, int)
 	    {'%', _print_perc},
 	    {'d', _print_int},
 	    {'i', _print_int},
+<<<<<<< HEAD
 	    {'u', _print_unsigned},
-	    {'o'' _print_oct}'
+	    {'o'' _print_oct},
 	    {'x', _print_hex},
-	    {'X', _print_HEX},
-		};
+	    {'X', _print_HEX},};
 		
+=======
+	    {'b', _print_binary}
+
+	};
+
+>>>>>>> 7081196d077a61eb2400dd91957e976404f8c02e
 	int i;
-	int func_count = 5;
+	int func_count = 6;
 
 	i = 0;
 	while (i < func_count)
