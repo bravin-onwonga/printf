@@ -23,7 +23,7 @@ int _print_HEX(va_list ap, int index)
 		array[i] = tem % 16;
 		tem = tem / 16;
 	}
-	for (i = count - 1; i >= 0; i++)
+	for (i = count - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
 			array[i] = array[i] + 7;
