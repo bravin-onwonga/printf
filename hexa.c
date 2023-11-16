@@ -4,7 +4,7 @@
  * @ap : arguments
  * Return : count
  **/
-int print_HEX(va_list ap)
+int _print_HEX(va_list ap, int index)
 {
 	int i, count = 0;
 	int *array;
@@ -30,5 +30,7 @@ int print_HEX(va_list ap)
 		_putchar(array[i] + '0');
 	}
 	free(array);
-	return (count);
+
+	index = index + count;
+	return (index);
 }

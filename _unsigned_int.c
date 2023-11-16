@@ -4,7 +4,7 @@
  * @ap: argument to print
  * Return: number of characters
  **/
-int print_unsigned(va_list ap)
+int _print_unsigned(va_list ap, int index)
 {
 	unsigned int n = va_arg(ap, unsigned int);
 	int i;
@@ -21,7 +21,7 @@ int print_unsigned(va_list ap)
 		last = -last;
 		i++;
 	}
-	if (sum > 0)
+	if (num > 0)
 	{
 		while (num / 10 != 0)
 		{
@@ -39,5 +39,7 @@ int print_unsigned(va_list ap)
 		}
 	}
 	_putchar(last + '0');
-	return (i);
+
+	index = index + i;
+	return (index);
 }

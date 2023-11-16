@@ -4,7 +4,7 @@
  * @ap : arguments
  * Return : count
  **/
-int print_oct(va_list ap)
+int _print_oct(va_list ap, int index)
 {
 	int i, count = 0;
 	int *array;
@@ -24,7 +24,9 @@ int print_oct(va_list ap)
 		tem = tem / 8;
 	}
 	for (i = count - 1; i >= 0; i--)
-	       _putchar(array[i] + '0');
+		_putchar(array[i] + '0');
 	free(array);
-	return (count);
+
+	index = index + count;
+	return (index);
 }
