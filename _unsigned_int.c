@@ -7,7 +7,7 @@
 int _print_unsigned(va_list ap, int index)
 {
 	unsigned int n = va_arg(ap, unsigned int);
-	int i;
+	int i = 0;
 	int num, last = n % 10, digit, exp = 1;
 
 	n = n / 10;
