@@ -45,8 +45,8 @@ int _print_unsigned(va_list ap, int index)
 		exp = exp / 10;
 		i++;
 	}
-
 	_putchar(last + '0');
+	i++;
 
 	return (index + i);
 }
