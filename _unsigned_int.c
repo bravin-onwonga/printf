@@ -10,19 +10,17 @@
 int _print_unsigned(va_list ap, int index)
 {
 	unsigned int n = va_arg(ap, unsigned int);
-	int i = 0;
-	int num, last = n % 10, digit, exp = 1;
+	int i = 0, num, last = n % 10, digit, exp = 1;
+
+	if (n / 10 == 0)
+	{
+		_putchar(n + '0');
+		i++;
+		return (index + i);
+	}
 
 	n = n / 10;
 	num = n;
-	if (last < 0)
-	{
-		_putchar('-');
-		num = -num;
-		n = -n;
-		last = -last;
-		i++;
-	}
 
 	if (num == 0)
 	{
