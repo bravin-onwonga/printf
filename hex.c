@@ -1,9 +1,12 @@
 #include "main.h"
+
 /**
- * print_hex - prints hexadecimal number.
- * @ap : arguments
- * Return : count
+ * _print_hex - prints hexadecimal number.
+ * @ap: arguments
+ * @index: chars printed so far
+ * Return: chars printed after function is executed
  **/
+
 int _print_hex(va_list ap, int index)
 {
 	int i, count = 0;
