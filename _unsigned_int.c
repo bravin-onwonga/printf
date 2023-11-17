@@ -27,7 +27,7 @@ int _print_unsigned(va_list ap, int index)
 	if (num == 0)
 	{
 		_putchar('0');
-		i++;
+		i += 2;
 		return (index + i);
 	}
 
